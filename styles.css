@@ -21,11 +21,45 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-.logo {
+.stage {
+  position: relative;
   width: min(72vmin, 560px);
+}
+
+.logo {
+  width: 100%;
   height: auto;
   display: block;
   pointer-events: none;
+}
+
+.stage > .logo:last-child {
+  position: relative;
+  z-index: 1;
+  -webkit-mask-image: radial-gradient(
+    circle closest-side,
+    #000 86%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(circle closest-side, #000 86%, transparent 100%);
+}
+
+.glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  transform: scale(1.16);
+  filter: blur(18px) saturate(1.45);
+  opacity: 0.6;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side, #000 62%, transparent 100%);
+}
+
+.glow-wide {
+  transform: scale(1.48);
+  filter: blur(42px) saturate(1.55);
+  opacity: 0.45;
 }
 
 #fullscreen {
